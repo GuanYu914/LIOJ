@@ -1,3 +1,7 @@
+/**
+ * 請搭配 https://www.youtube.com/watch?v=KiCBXu4P-2Y&list=PLqWlMgqzowmw-sMjHUWa9exuoFP25O8PV&index=2&t=906s&ab_channel=WilliamFiset
+ */
+
 var readline = require('readline');
 var rl = readline.createInterface({
   input: process.stdin
