@@ -37,7 +37,7 @@ function solve(lines) {
     let arrWei = []
     let arrValue = []
 
-    for (let i = 0; i < n; i++) { 
+    for (let i = 0; i < n; i++) {
         arrWei[i] = Number(lines[i + 1].split(' ')[0])      // 讀入每個物品的重量
         arrValue[i] = Number(lines[i + 1].split(' ')[1])    // 讀入每個物品的價值
     }
@@ -77,10 +77,12 @@ function knapsack(arrWei, arrValue, n, c) {
  */
 /*
 function knapsack(arrWei, arrValue, n, c) {
-    if (n === 0 || c === 0) {
+    if (dp[n][c] !== undefined) {    // 若在[n][c]找到先前計算的數值，直接回傳不必再做一次
+        return dp[n][c]
+    }
+    else if (n === 0 || c === 0) {
+        dp[n][c] = 0
         return 0
-    } else if (dp[n - 1][c - 1] !== undefined) {    // 若在[n][c]找到先前計算的數值，直接回傳不必再做一次
-        return dp[n - 1][c - 1]
     }
     else if (arrWei[n - 1] > c) {
         return knapsack(arrWei, arrValue, n - 1, c)
@@ -88,7 +90,7 @@ function knapsack(arrWei, arrValue, n, c) {
         let tmp1 = knapsack(arrWei, arrValue, n - 1, c)
         let tmp2 = arrValue[n - 1] + knapsack(arrWei, arrValue, n - 1, c - arrWei[n - 1])
         let res = (tmp1 > tmp2) ? tmp1 : tmp2
-        dp[n - 1][c - 1] = res                      // 使用 n*c 二維陣列儲存每次的運算結果
+        dp[n][c] = res                      // 使用 n*c 二維陣列儲存每次的運算結果
         return res
     }
 }
