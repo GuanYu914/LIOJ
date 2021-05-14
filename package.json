@@ -1,10 +1,10 @@
 {
   "name": "lioj",
   "version": "1.0.0",
-  "description": "",
   "main": "LIOJ1004.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "eslint-init": "eslint --init"
   },
   "repository": {
     "type": "git",
@@ -17,7 +17,14 @@
   },
   "homepage": "https://github.com/GuanYu914/LIOJ#readme",
   "dependencies": {
-    "eslint": "^7.26.0",
     "jest": "^26.6.3"
-  }
+  },
+  "devDependencies": {
+    "eslint": "^7.26.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-import": "^2.23.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.3.1"
+  },
+  "description": ""
 }
