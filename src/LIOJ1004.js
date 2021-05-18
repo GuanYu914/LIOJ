@@ -1,3 +1,4 @@
+/* eslint-disable no-multi-spaces */
 const readline = require('readline')
 const rl = readline.createInterface({
   input: process.stdin
@@ -25,37 +26,18 @@ function solve (lines) {
 }
 
 function isWin (a, b, cond) {
-  if (Number(cond) === 1) { // 找較大者
-    if (a.length === b.length) {
-      for (let i = 0; i < a.length; i++) {
-        if (Number(a[i]) > Number(b[i])) {
-          return 'A'
-        } else if (Number(b[i] > Number(a[i]))) {
-          return 'B'
-        }
-      }
-      return 'DRAW'
-    } else if (a.length > b.length) { // 字串長度較長者，數值一定較大
-      return 'A'
-    } else if (b.length > a.length) {
-      return 'B'
+  if (a === b) { return 'DRAW' }
+  if (Number(cond) === 1) {   // 找較大者
+    if (a.length !== b.length) {
+      return a.length > b.length ? 'A' : 'B'
     }
-  } else { // 找較小者
-    if (a.length === b.length) {
-      for (let i = 0; i < a.length; i++) {
-        // console.log('a[i]: ', a[i])
-        // console.log('b[i]: ', b[i])
-        if (Number(a[i]) < Number(b[i])) {
-          return 'A'
-        } else if (Number(b[i] < Number(a[i]))) {
-          return 'B'
-        }
-      }
-      return 'DRAW'
-    } else if (a.length < b.length) { // 字串長度較短者，數值一定較小
-      return 'A'
-    } else if (b.length < a.length) {
-      return 'B'
+    return a > b ? 'A' : 'B'
+  }
+
+  if (Number(cond) === -1) {  // 找較小者
+    if (a.length !== b.length) {
+      return a.length < b.length ? 'A' : 'B'
     }
+    return a < b ? 'A' : 'B'
   }
 }
